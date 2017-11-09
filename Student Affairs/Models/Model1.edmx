@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Students_AffairsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_AR" Type="nvarchar" MaxLength="200" />
+          <Property Name="Name_EN" Type="nvarchar" MaxLength="200" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="Religion" Type="nvarchar" MaxLength="50" />
+          <Property Name="residence" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birth_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Place_Of_Birth" Type="nvarchar" MaxLength="50" />
+          <Property Name="SSN" Type="nvarchar" MaxLength="14" />
+          <Property Name="SSN_Place" Type="nvarchar" MaxLength="50" />
+          <Property Name="SSN_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Certificate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Certificate_Year" Type="int" />
+          <Property Name="School_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="School_Dir" Type="nvarchar" MaxLength="50" />
+          <Property Name="Languages" Type="nvarchar" MaxLength="200" />
+          <Property Name="Sitting_Number" Type="int" />
+          <Property Name="Department" Type="nvarchar" MaxLength="50" />
+          <Property Name="Total_Grade" Type="float" />
+          <Property Name="Parent_Info" Type="nvarchar" MaxLength="500" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Students_Affairs.dbo.Student_Affairs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Student_Affairs">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Students_AffairsModelStoreContainer">
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Affairs" EntityType="Self.Student_Affairs" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Student_Affairs].[id] AS [id], 
+    [Student_Affairs].[UserName] AS [UserName], 
+    [Student_Affairs].[Password] AS [Password]
+    FROM [dbo].[Student_Affairs] AS [Student_Affairs]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Students_AffairsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_AR" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Name_EN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="residence" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birth_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Place_Of_Birth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SSN" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="SSN_Place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SSN_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Certificate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Certificate_Year" Type="Int32" />
+          <Property Name="School_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="School_Dir" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Languages" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Sitting_Number" Type="Int32" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Grade" Type="Double" />
+          <Property Name="Parent_Info" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student_Affairs">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Student_Affairs" EntityType="Self.Student_Affairs" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Students_AffairsModelStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="Students_AffairsModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_AR" ColumnName="Name_AR" />
+                <ScalarProperty Name="Name_EN" ColumnName="Name_EN" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="residence" ColumnName="residence" />
+                <ScalarProperty Name="Birth_Date" ColumnName="Birth_Date" />
+                <ScalarProperty Name="Place_Of_Birth" ColumnName="Place_Of_Birth" />
+                <ScalarProperty Name="SSN" ColumnName="SSN" />
+                <ScalarProperty Name="SSN_Place" ColumnName="SSN_Place" />
+                <ScalarProperty Name="SSN_Date" ColumnName="SSN_Date" />
+                <ScalarProperty Name="Certificate" ColumnName="Certificate" />
+                <ScalarProperty Name="Certificate_Year" ColumnName="Certificate_Year" />
+                <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+                <ScalarProperty Name="School_Dir" ColumnName="School_Dir" />
+                <ScalarProperty Name="Languages" ColumnName="Languages" />
+                <ScalarProperty Name="Sitting_Number" ColumnName="Sitting_Number" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Total_Grade" ColumnName="Total_Grade" />
+                <ScalarProperty Name="Parent_Info" ColumnName="Parent_Info" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Affairs">
+            <EntityTypeMapping TypeName="Students_AffairsModel.Student_Affairs">
+              <MappingFragment StoreEntitySet="Student_Affairs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
