@@ -41,5 +41,13 @@ namespace Student_Affairs.Controllers
             }
             else { return RedirectToAction("../Login/Index"); }
         }
+
+        [HttpGet]
+        public ActionResult ViewStudents()
+        {
+            ViewBag.student = db.Students.ToList();
+            return View();
+        }
+
     }
 }
