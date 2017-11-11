@@ -11,16 +11,11 @@ namespace Student_Affairs.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Student_Affairs
     {
         public int id { get; set; }
-        [Required]
-        [Display(Name = "username")]
         public string UserName { get; set; }
-        [Required]
-        [Display(Name = "password")]
         public string Password { get; set; }
     }
 }

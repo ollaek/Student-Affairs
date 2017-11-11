@@ -11,54 +11,31 @@ namespace Student_Affairs.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Student
     {
         public int Id { get; set; }
-        [Required]
         public string Name_AR { get; set; }
-       
         public string Name_EN { get; set; }
-        [Required]
         public string Nationality { get; set; }
-        [Required]
         public string Religion { get; set; }
-        
         public string residence { get; set; }
-        
         public string Birth_Date { get; set; }
-        
         public string Place_Of_Birth { get; set; }
-        
-        [StringLength(14)]
         public string SSN { get; set; }
-        
         public string SSN_Place { get; set; }
-        
         public string SSN_Date { get; set; }
-        
         public string Certificate { get; set; }
-        
-        [StringLength(4)]
         public Nullable<int> Certificate_Year { get; set; }
-        
         public string School_Name { get; set; }
-        
         public string School_Dir { get; set; }
-        
         public string Languages { get; set; }
-        
         public Nullable<int> Sitting_Number { get; set; }
-        
         public string Department { get; set; }
-        
         public Nullable<double> Total_Grade { get; set; }
-        
         public string Parent_Info { get; set; }
-        
         public string Telephone { get; set; }
-        
         public string Mobile { get; set; }
+        public Nullable<int> level { get; set; }
     }
 }

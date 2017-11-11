@@ -45,7 +45,13 @@ namespace Student_Affairs.Controllers
         [HttpGet]
         public ActionResult ViewStudents()
         {
+
             ViewBag.student = db.Students.ToList();
+            ViewBag.level1 = db.Students.Where(o => o.level == 1).ToList();
+            ViewBag.level2 = db.Students.Where(o => o.level == 2).ToList();
+            ViewBag.level3 = db.Students.Where(o => o.level == 3).ToList();
+            ViewBag.level4 = db.Students.Where(o => o.level == 4).ToList();
+
             return View();
         }
 
