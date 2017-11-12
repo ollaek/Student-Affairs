@@ -29,12 +29,18 @@
             -->
 
             <div class="toolbar">
+            @using (Html.BeginForm(FormMethod.Post))
+            {
                 <a href='javascript:history.go(-1)' class="btn btn-default "><span class="fa fa-arrow-left "></span>Back</a>
-                <button class="btn btn-default " id="0">All</button>
-                <button class="btn btn-default " id="1">Level 1</button>
-                <button class="btn btn-default " id="2">Level 2</button>
-                <button class="btn btn-default " id="3">Level 3</button>
-                <button class="btn btn-default " id="4">Level 4</button>
+
+                <input class="btn btn-default " type="submit" name="filter" value="all"/>
+                <input class="btn btn-default " type="submit" name="filter" value="Level 1" />
+                <input class="btn btn-default " type="submit" name="filter" value="Level 2" />
+                <input class="btn btn-default " type="submit" name="filter" value="Level 3" />
+                <input class="btn btn-default " type="submit" name="filter" value="Level 4" />
+
+
+            }
             </div>
 
             <table id="fresh-table" class="table">
@@ -51,7 +57,7 @@
                     @foreach(var item in ViewBag.student) { 
                     <tr>
                         <td>@item.Id</td>
-                        <td>@item.Name_AR</td>
+                        <td><a href="@Url.Action("EditStudent","Student",new { id = item.Id})" style="text-decoration:none">@item.Name_AR</a></td>
                         <td>2</td>
                         <td>@item.residence</td>
                         <td>@item.Mobile</td>

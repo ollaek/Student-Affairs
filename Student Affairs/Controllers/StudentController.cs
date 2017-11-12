@@ -45,13 +45,45 @@ namespace Student_Affairs.Controllers
         [HttpGet]
         public ActionResult ViewStudents()
         {
-
             ViewBag.student = db.Students.ToList();
-            ViewBag.level1 = db.Students.Where(o => o.level == 1).ToList();
-            ViewBag.level2 = db.Students.Where(o => o.level == 2).ToList();
-            ViewBag.level3 = db.Students.Where(o => o.level == 3).ToList();
-            ViewBag.level4 = db.Students.Where(o => o.level == 4).ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ViewStudents(string filter)
+        {
+            switch (filter)
+            {
+                case "all":
+                    ViewBag.student = db.Students.ToList();
+                    break;
+                case "Level 1":
+                    ViewBag.student = db.Students.Where(o => o.level == 1).ToList();
+                    break;
+                case "Level 2":
+                    ViewBag.student = db.Students.Where(o => o.level == 2).ToList();
+                    break;
+                case "Level 3":
+                    ViewBag.student = db.Students.Where(o => o.level == 3).ToList();
+                    break;
+                case "Level 4":
+                    ViewBag.student = db.Students.Where(o => o.level == 4).ToList();
+                    break;
+                default:
+                    ViewBag.student = db.Students.ToList();
+                    break;
 
+            }
+           
+            return View();
+        }
+        [HttpGet]
+        public ActionResult EditStudent()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult EditStudent(int id)
+        {
             return View();
         }
 
